@@ -70,7 +70,7 @@ section {
 }
 .img-3 img {
   transform-origin: top right;
-  transform: scale(3);
+  transform: scale(2);
 }
 .spacing {
   height: 100vh;

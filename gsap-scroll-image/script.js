@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.fromTo(
     ".img-3 img",
     {
-      scale: 2.9,
+      scale: 2,
     },
     {
       scale: 1,
