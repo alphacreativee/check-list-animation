@@ -1,0 +1,81 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "GrifinitoL";
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+input,
+select,
+textarea {
+  background-color: transparent;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+body,
+html {
+  height: 700vh !important;
+}
+
+.sticky-sec {
+  position: relative;
+  perspective: 1000px;
+  /* height: 100vh; */
+}
+.sticky-sec .intro {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+}
+section {
+  height: 100vh;
+}
+.sticky-sec .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.sticky-sec .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.img-2 {
+  clip-path: polygon(40% 25%, 60% 25%, 60% 75%, 40% 75%);
+}
+.img-3 {
+  clip-path: polygon(50% 25%, 50% 25%, 50% 75%, 50% 75%);
+}
+.img-3 img {
+  transform-origin: top right;
+  transform: scale(3);
+}
+.spacing {
+  height: 100vh;
+}
+.copy {
+  position: absolute;
+  display: none;
+}
