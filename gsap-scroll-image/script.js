@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gsap.registerPlugin(ScrollTrigger);
   const stickySection = document.querySelector(".sticky-sec");
-  const totalStickyHeight = window.innerHeight * 4;
+  const totalStickyHeight = window.innerHeight * 6;
   function throttle(callback, limit) {
     let lastCall = 0;
     return function (...args) {
@@ -158,10 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       scrollTrigger: {
         trigger: stickySection,
-        // start: () => `+=${window.innerHeight * 4}`,
-        // end: () => `+=${window.innerHeight * 6}`,
-        start: "bottom bottom",
-        end: () => `+=${window.innerHeight * 2}`,
+        start: () =>
+          document.querySelector(".img-2").offsetTop +
+          document.querySelector(".img-2").offsetHeight * 2.5,
+        end: () => `+=${window.innerHeight * 4}`,
         scrub: true,
       },
     }
