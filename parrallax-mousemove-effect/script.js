@@ -35,11 +35,12 @@ items.forEach((item, index) => {
 });
 
 document.addEventListener("mousemove", (e) => {
-  items.forEach((item) => {
+  items.forEach((item, index) => {
     const animationFactor = item.getAttribute("parallax");
+
     console.log(animationFactor);
     const detalX = (e.clientX - window.innerWidth / 2) * animationFactor;
-    const detalY = (e.clientX - window.innerHeight / 2) * animationFactor;
+    const detalY = (e.clientY - window.innerHeight / 2) * animationFactor;
 
     gsap.to(item, {
       x: detalX,

@@ -1,3 +1,17 @@
+const lenis = new Lenis({
+  smooth: true,
+  easing: (t) => t,
+  duration: 0,
+});
+
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
+
 gsap.registerPlugin(ScrollTrigger);
 
 function scrollToSection() {
@@ -23,11 +37,10 @@ function scrollToSection() {
       end: "bottom top",
       snap: {
         snapTo: 1, // Snap tới section tiếp theo
-        duration: 0.5, // Thời gian snap
-        delay: 0.125, // Độ trễ snap
-        ease: "power1.inOut", // Hiệu ứng easing
+        duration: 0.3, // Thời gian snap
+        ease: "none", // Hiệu ứng easing
       },
-      scrub: true, // Mượt mà khi cuộn
+      scrub: 0, // Mượt mà khi cuộn
       markers: true, // Hiển thị markers để debug
     });
   });
