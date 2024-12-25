@@ -1,0 +1,84 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+input,
+select,
+textarea {
+  background-color: transparent;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .img-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+}
+.container .img-container .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.container .img-container .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container .img-container .img-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  mix-blend-mode: screen;
+}
+.container .img-container .img-blocks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.container .img-container .img-blocks .block {
+  width: 50px;
+  height: 50px;
+  mix-blend-mode: hard-light;
+  background-color: #000;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+.container .img-container .img-blocks .block.active {
+  opacity: 0.75;
+}
