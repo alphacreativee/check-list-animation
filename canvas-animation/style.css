@@ -27,6 +27,12 @@ button {
   outline: none;
   border: 0;
 }
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 .section {
   position: relative;
   width: 100vw;
@@ -45,7 +51,7 @@ button {
   font-size: 240px;
   line-height: 1;
 }
-.section .item {
+.item {
   position: absolute;
   padding: 8px 8px 64px 8px;
   width: 200px;
@@ -53,7 +59,7 @@ button {
   overflow: hidden;
   background-color: #fff;
 }
-.section .item img {
+.item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
