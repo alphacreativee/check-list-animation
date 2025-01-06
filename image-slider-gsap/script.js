@@ -52,7 +52,7 @@ const updateImages = () => {
 
     gsap.to([imgTop, imgBottom], {
       clipPath: "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)",
-      scale: 1,
+      transform: "scale(1)",
       duration: 2,
       ease: "power4.out",
       stagger: 0.15,
