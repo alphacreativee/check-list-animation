@@ -26,14 +26,14 @@ const handleSlider = () => {
 
       updateImages(currentIndex + 1);
     },
-    x: `-${(currentIndex - 1) * 11.11111}%`,
+    x: `-${(currentIndex - 1) * 11}%`,
     duration: 2,
     ease: "power4.out",
   });
 };
 
 const updateImages = () => {
-  for (let imgNumber = 1; imgNumber <= 6; imgNumber++) {
+  for (let imgNumber = 0; imgNumber <= 6; imgNumber++) {
     const imgSrc = `./images/img${imgNumber}.webp`; // Generate image source
     const imgTop = document.createElement("img");
     const imgBottom = document.createElement("img");
