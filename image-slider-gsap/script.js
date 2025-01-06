@@ -33,7 +33,7 @@ const handleSlider = () => {
 };
 
 const updateImages = () => {
-  for (let imgNumber = 0; imgNumber <= 6; imgNumber++) {
+  for (let imgNumber = 1; imgNumber <= 6; imgNumber++) {
     const imgSrc = `./images/img${imgNumber}.webp`; // Generate image source
     const imgTop = document.createElement("img");
     const imgBottom = document.createElement("img");
