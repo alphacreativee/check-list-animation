@@ -1,0 +1,72 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+input,
+select,
+textarea {
+  background-color: transparent;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+body {
+  min-height: 100vh;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  background-color: black;
+}
+.button-one {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid aqua;
+  text-decoration: none;
+  animation: gradient-animation 8s ease infinite;
+  animation-play-state: paused;
+  background: linear-gradient(
+    90deg,
+    rgba(18, 226, 255, 0.3),
+    rgba(18, 226, 255, 0),
+    rgba(18, 226, 255, 0.2),
+    rgba(18, 226, 255, 0),
+    rgba(18, 226, 255, 0.3)
+  );
+  background-size: 400% 100%;
+}
+.button-one:hover {
+  animation-play-state: running;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.button-one span {
+  color: aqua;
+  text-decoration: none;
+}
