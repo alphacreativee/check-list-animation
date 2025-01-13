@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .grid-item {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .grid-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .grid-item .content {
+            padding: 15px;
+        }
+        .grid-item .content a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+        .grid-item .content a:hover {
+            text-decoration: underline;
+        }
+        .grid-item .content p {
+            color: #555;
+            font-size: 14px;
+        }
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; margin: 20px 0;">Overview</h1>
+    <div class="grid-container">
+        <!-- Item 1 -->
+        <div class="grid-item">
+            <img src="./assets/images/image-default.webp" alt="Item 1">
+            <div class="content">
+                <a href="./accordion-list-image/index.html" target="_blank">Accordion list image</a>
+                <p></p>
+            </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="grid-item">
+            <img src="./assets/images/image-default.webp" alt="Item 2">
+            <div class="content">
+                <a href="./canvas-banner/index.html" target="_blank">Water Pointer</a>
+                <p></p>
+            </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="grid-item">
+            <img src="./assets/images/image-default.webp" alt="Item 3">
+            <div class="content">
+                <a href="./canvas-with-webgl/index.html" target="_blank">Color Pointer</a>
+                <p></p>
+            </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="grid-item">
+            <img src="./assets/images/image-default.webp" alt="Item 4">
+            <div class="content">
+                <a href="./css-svg/index.html" target="_blank">Banner SVG</a>
+                <p></p>
+            </div>
+        </div>
+        <!-- Add more items as needed -->
+    </div>
+
+</body>
+</html>
