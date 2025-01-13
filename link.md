@@ -14,3 +14,6 @@
 <!-- https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js -->
 
 <!-- https://gsap.com/community/forums/topic/31492-parallaximage-full-reveal-on-scroll-using-scrolltrigger-and-some-css-hacks/ -->
+
+<!-- hover text -->
+<!-- https://codepen.io/Juxtopposed/pen/mdQaNbG -->
