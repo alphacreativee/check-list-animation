@@ -2,7 +2,7 @@ gsap.config({ trialWarn: false });
 console.clear();
 gsap.registerPlugin(ScrollTrigger, SplitType);
 
-const split = new SplitType("p", { type: "lines" });
+const split = new SplitType("p", { type: "chars" });
 
 split.lines.forEach((target) => {
   gsap.to(target, {
