@@ -26,7 +26,7 @@
     }
 
     .speed-line {
-      animation-duration: 4s;
+      animation-duration: 8s;
       animation-iteration-count: infinite;
       animation-name: lightspeed;
       animation-timing-function: ease-in-out;
@@ -86,10 +86,12 @@
       const shootingStar = document.querySelectorAll(".shooting-star");
       shootingStar.forEach((element, index) => {
         const count = element.dataset.count;
+        console.log(count);
+
         for (let i = 0; i < count; i++) {
           const leftValue = Math.random() * 60 + 10; // Zufallswert zwischen 10% und 70%
           const bottomValue = Math.random() * 30 + 80; // Zufallswert zwischen 80% und 110%
-          const animationDelayValue = Math.random() * 45; // Zufallswert zwischen 0s und 45s
+          const animationDelayValue = Math.random() * 15; // Zufallswert zwischen 0s und 45s
 
           // Neues Div-Element erstellen
           const speedLine = document.createElement("div");
