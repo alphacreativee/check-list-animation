@@ -35,7 +35,9 @@ body {
 }
 .bg {
   height: 100vh;
-  background-color: "#66666e";
+  background-image: url('../assets/images/bg-noise.png');
+  background-position: center;
+  background-size: cover;
 }
 
 .bg:after {
