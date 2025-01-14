@@ -17,3 +17,17 @@
 
 <!-- hover text -->
 <!-- https://codepen.io/Juxtopposed/pen/mdQaNbG -->
+
+<!-- slider -->
+<!-- https://www.youtube.com/watch?v=OTjmnF27ADk -->
+
+<!-- slider -->
+<!-- https://www.youtube.com/watch?v=OTjmnF27ADk -->
+
+<!-- slider -->
+<!-- https://www.youtube.com/watch?v=OTjmnF27ADk -->
+
+<!-- webgl -->
+<!-- https://seeren.github.io/liquify-js/ -->
+<!-- text -->
+<!-- https://codepen.io/aniketkr/pen/jOxpoYb -->
