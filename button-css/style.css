@@ -118,6 +118,10 @@ body {
   z-index: 2;
   text-decoration: none;
   color: white;
+  transition: all 0.4s;
+}
+.button-two:hover a {
+  color: aqua;
 }
 .button-two:hover::after {
   opacity: 0.5;
