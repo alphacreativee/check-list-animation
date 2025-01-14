@@ -55,11 +55,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    45deg,
-    rgba(18, 226, 255, 0.3),
-    rgba(18, 226, 255, 0.7)
-  );
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
 }
 
 @keyframes grain {
