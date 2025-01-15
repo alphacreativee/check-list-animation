@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+      href="https://db.onlinewebfonts.com/c/1c87f20c55baa7eccc98b8603b5eecea?family=GrifinitoL"
+      rel="stylesheet"
+    />
 </head>
 <style>
     * {
@@ -439,6 +443,41 @@ a {
   mix-blend-mode: difference;
   color: white;
 }
+
+/* animation text reveal */
+.lenis {
+  &.lenis-smooth {
+    scroll-behavior: auto;
+
+    [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+  }
+
+  &.lenis-stopped {
+    overflow: hidden;
+  }
+
+  &.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
+
+.container {
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.reveal {
+  font-kerning: none;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 3rem;
+  line-height: 1.4;
+  font-family: "GrifinitoL";
+  letter-spacing: 0.8px;
+}
 </style>
 <body>
     <section>
@@ -488,6 +527,12 @@ a {
       </div>
     </section>
 
+    <section style="flex-direction: column; background-image: linear-gradient(to right, #2F586A, #1E121C);">
+      <div class="container">
+        <p class="reveal" style="color: white;">In the vastness of space, celestial bodies dance in harmony. Stars twinkle, planets orbit, and nebulas paint vibrant hues. Black holes exert their gravitational might, while comets streak by, leaving stardust in their wake.</p>
+      </div>
+    </section>
+
     <div class="wrapper-wave">
       <svg xmlns="http://www.w3.org/2000/svg" 
           width="50px" height="50px"
@@ -500,6 +545,10 @@ a {
           </path>
       </svg>
     </div>
+    <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
 </body>
 <script>
   const $card = document.querySelector('.card');
@@ -614,5 +663,40 @@ a {
   }
 
   buildWave(90, 60);
+
+  // Reveal text animation
+  gsap.registerPlugin(ScrollTrigger);
+  let revealAnimations = [];
+
+  const lenis = new Lenis({
+    lerp: 0.07
+  });
+
+  lenis.on('scroll', ScrollTrigger.update)
+  gsap.ticker.add((time)=>{
+    lenis.raf(time * 1000)
+  })
+
+  document.querySelectorAll('.reveal').forEach(text => {
+    let splitText = new SplitType(text, {
+      type: 'words'
+    })
+
+    const section = text.closest('section');
+    gsap.from(splitText.words, {
+      opacity: 0,
+      ease: 'none',
+      stagger: 1,
+      duration: 5,
+      scrollTrigger: {
+        trigger: section,
+        start: 'top top', 
+        end: () => `+=${window.innerHeight * 5}px`,
+        scrub: true,
+        markers: true,
+        pin: true,
+      }
+    })
+  })
 </script>
 </html>
