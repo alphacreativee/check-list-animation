@@ -52,5 +52,16 @@ body {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+.text p .line .char {
+  transition: all 0.4s;
+}
+.text p .line .char:hover {
+  color: red;
+  transform-origin: center;
+}
+.text-2 .text-c {
+  font-size: 150px;
+  color: white;
 }

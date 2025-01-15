@@ -31,3 +31,5 @@
 <!-- https://seeren.github.io/liquify-js/ -->
 <!-- text -->
 <!-- https://codepen.io/aniketkr/pen/jOxpoYb -->
+
+<!-- https://codepen.io/GreenSock/pens/tags/?selected_tag=text-effects&cursor=ZD0xJm89MCZwPTg= -->
