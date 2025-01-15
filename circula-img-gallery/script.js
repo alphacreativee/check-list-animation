@@ -16,11 +16,11 @@ items.forEach((item, index) => {
   const initialRotation = (angle * 180) / Math.PI - 90;
   const x = centerX + radius * Math.cos(angle);
   const y = centerY + radius * Math.sin(angle);
-  //
+
   gsap.set(item, {
     scale: 0,
   });
-  //
+
   tl.to(
     item,
     {
@@ -46,7 +46,7 @@ items.forEach((item, index) => {
     container.appendChild(duplicate);
 
     gsap.to(
-      Array.from(items).filter((i) => i != item),
+      Array.from(items).filter((i) => i !== item),
       {
         scale: 0,
         duration: 0.5,
@@ -72,8 +72,11 @@ items.forEach((item, index) => {
         });
       },
     });
+
     const closeGallery = function () {
       if (isGalleryOpen) {
+        isGalleryOpen = false; // Reset the gallery state
+
         gsap.to([item, duplicate], {
           left: x + "px",
           top: y + "px",
@@ -89,11 +92,16 @@ items.forEach((item, index) => {
               stagger: 0.05,
               ease: "power2.out",
             });
-            isGalleryOpen = false;
           },
         });
+
+        // Remove the event listeners to prevent stacking
+        item.removeEventListener("click", closeGallery);
+        duplicate.removeEventListener("click", closeGallery);
       }
     };
+
+    // Add the closeGallery event listener
     item.addEventListener("click", closeGallery);
     duplicate.addEventListener("click", closeGallery);
   });
