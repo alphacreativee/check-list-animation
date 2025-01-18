@@ -51,16 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const items = document.querySelectorAll(".scroll-item .item");
-
+  // Thiết lập giá trị mặc định cho tất cả các mục
   gsap.set(items, {
     scaleY: 0,
-    opacity: 0,
+    // opacity: 0,
   });
 
   // Create ScrollTrigger for each item
   items.forEach((item, index) => {
     const startOffset = window.innerHeight * 0.1 * index; // Modify the offset for each item (you can adjust this value)
     // const startOffset = window.innerHeight - 400;
+
     ScrollTrigger.create({
       trigger: item, // Each item element
       start: `top+=${startOffset} bottom`,
@@ -69,11 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
       animation: gsap.to(item, {
         // y: 0, // Move to the original position (y: 0)
         scaleY: 1,
-        opacity: 1,
+        // opacity: 1,
         // opacity: 1, // Set opacity to 1
         duration: 0.5, // Animation duration
         ease: "power2.out", // Easing for the animation
-        // delay: 0.5,
+        delay: 0.5,
       }),
       scrub: 1, // Sync with scroll
       // markers: true, // Enable markers (can be turned off for production)
