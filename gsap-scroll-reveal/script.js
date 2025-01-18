@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: item, // Each item element
       start: `top+=${startOffset} bottom`,
       end: `+=400px`,
+      markers: true,
       animation: gsap.to(item, {
         // y: 0, // Move to the original position (y: 0)
         scaleY: 1,
