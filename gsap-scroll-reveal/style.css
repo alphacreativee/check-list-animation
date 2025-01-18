@@ -36,12 +36,18 @@ body {
 .spacing {
   height: 100vh;
 }
+.scroll-item .item {
+  will-change: clip-path, opacity;
+  transform-origin: bottom;
+}
 .slider-wrapper {
-  /* padding-left: 80px; */
+  /* padding-left: 80px;
+  background-color: red; */
 }
 .scroll-item {
   display: flex;
   /* width: 150%; */
+  /* gap: 12px; */
 }
 .scroll-item .item {
   min-width: 25%;
