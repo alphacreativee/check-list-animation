@@ -10,7 +10,7 @@ if (wrapperTestimonials.length > 0) {
     // Hàm để tính toán lượng cuộn cần thiết
     const getScrollAmount = () => {
       const racesWidth = testimonial.scrollWidth;
-      return racesWidth - window.innerWidth + 80;
+      return racesWidth - window.innerWidth;
     };
 
     // Hàm để tạo tween animation cho testimonial
