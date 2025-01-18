@@ -41,7 +41,7 @@ body {
   transform-origin: bottom;
 }
 .slider-wrapper {
-  background-color: red;
+  /* background-color: red; */
 }
 .scroll-item {
   display: flex;
