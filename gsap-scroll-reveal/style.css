@@ -41,7 +41,6 @@ body {
 }
 .scroll-item {
   display: flex;
-  gap: 12px;
   /* width: 150%; */
 }
 .scroll-item .item {
