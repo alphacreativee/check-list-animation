@@ -41,15 +41,21 @@ body {
   transform-origin: bottom;
 }
 .slider-wrapper {
-  /* background-color: red; */
 }
 .scroll-item {
   display: flex;
   /* width: 150%; */
   /* gap: 12px; */
 }
+.scroll-content {
+  height: 200px;
+  width: 600px;
+  background-color: aqua;
+  margin-bottom: 140px;
+}
 .scroll-item .item {
   min-width: 25%;
   height: 400px;
+  /* background: linear-gradient(135deg, #080e1d 0%, #212b3a 80%); */
   background-color: #fff;
 }
