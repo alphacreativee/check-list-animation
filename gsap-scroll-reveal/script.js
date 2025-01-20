@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ScrollTrigger.create({
           trigger: wrapper,
           start: "top top",
-          // end: `+=${scrollAmount}`,
-          end: "bottom -100%",
+          end: `bottom+=${scrollAmount}`,
+          // end: "bottom -100%",
           pin: true,
           animation: tween,
           scrub: 1,
