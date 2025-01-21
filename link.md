@@ -40,3 +40,6 @@
 <!-- https://codepen.io/mKaran243/pen/xxWOZqX -->
 
 https://codepen.io/maeolive/pen/ExqrZPL
+
+<!-- multi scroll -->
+<!-- https://codepen.io/ux-designer22/full/abRgXoP -->
