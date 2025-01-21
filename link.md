@@ -47,3 +47,6 @@ https://codepen.io/maeolive/pen/ExqrZPL
 hover text
 
 <!-- https://gsap.com/community/forums/topic/38710-how-to-create-gsap-hover-split-text/ -->
+
+cursor mouse trail
+https://codepen.io/th-akash/pen/vYzOJgR
