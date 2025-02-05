@@ -50,3 +50,7 @@ hover text
 
 cursor mouse trail
 https://codepen.io/th-akash/pen/vYzOJgR
+
+<!-- hover circle  -->
+
+https://codepen.io/wifidev/pen/GYGwpv
