@@ -1,9 +1,11 @@
-var myAnimation = new hoverEffect({
-  parent: document.querySelector(".wrapper-img"),
-  intensity1: 0.2,
-  intensity2: 0.1,
-  angle2: Math.PI / 2,
-  image1: "images/img2.webp",
-  image2: "images/img4.webp",
-  displacementImage: "images/img4.webp",
+document.querySelectorAll(".wrapper-img").forEach((wrapper) => {
+  new hoverEffect({
+    parent: wrapper,
+    intensity1: 0.2,
+    intensity2: 0.1,
+    angle2: Math.PI / 2,
+    image1: wrapper.getAttribute("data-image1"),
+    image2: wrapper.getAttribute("data-image2"),
+    displacementImage: wrapper.getAttribute("data-displacement"),
+  });
 });
