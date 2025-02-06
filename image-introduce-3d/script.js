@@ -26,7 +26,7 @@ window.addEventListener("load", function () {
       trigger: ".cotainer-image",
       start: "top top",
       end: "bottom bottom",
-      scrub: 2,
+      scrub: true,
       onUpdate: (self) => {
         const progress = self.progress;
         const zIncrement = progress * 12500;
@@ -44,12 +44,12 @@ window.addEventListener("load", function () {
         if (currentZ < 100) {
           gsap.to(activeSlideImages[index], 1.5, {
             opacity: 1,
-            ease: "power3.out",
+            ease: "none",
           });
         } else {
           gsap.to(activeSlideImages[index], 1.5, {
             opacity: 0,
-            ease: "power3.out",
+            ease: "none",
           });
         }
       },
