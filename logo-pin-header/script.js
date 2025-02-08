@@ -17,8 +17,8 @@ const animate = () => {
       start: "top top",
       end: "bottom top",
       pin: true,
-      scrub: true,
       markers: true,
+      scrub: true,
     },
   });
 };
