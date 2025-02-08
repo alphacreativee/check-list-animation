@@ -1,11 +1,15 @@
 gsap.registerPlugin(ScrollTrigger);
-console.log(innerHeight);
+const logo = document.querySelector("#logo");
+const originalHeight = logo.offsetHeight;
+const scaleFactor = 2;
+
+const scaledHeight = originalHeight * scaleFactor;
 
 const animate = () => {
   gsap.from("#logo", {
     duration: 3,
-    scale: 2,
-    y: innerHeight * 0.5,
+    scale: scaleFactor,
+    y: innerHeight * 0.5 - scaledHeight / 2,
     transformOrigin: "left center",
 
     scrollTrigger: {
