@@ -16,9 +16,9 @@ const animate = () => {
       trigger: ".hero-img",
       start: "top top",
       end: "bottom top",
-      markers: true,
       pin: true,
       scrub: true,
+      markers: true,
     },
   });
 };
