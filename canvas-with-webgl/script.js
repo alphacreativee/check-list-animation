@@ -2,7 +2,7 @@
 
 // https://codepen.io/PavelDoGreat/pen/zdWzEL
 
-// ----- ----- ----- ----- ----- ----- ----- -----
+// ----- ----- ---import * as THREE from "https://unpkg.com/three@0.137.5/build/three.module.js";-- ----- ----- ----- ----- -----
 
 // https://github.com/PavelDoGreat/WebGL-Fluid-Simulation
 
