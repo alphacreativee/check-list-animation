@@ -57,4 +57,26 @@ https://codepen.io/wifidev/pen/GYGwpv
 
 <!-- https://codepen.io/Uzair-3455/pen/RwwJoQz -->
 
+slide circle
 https://codepen.io/creativeocean/pen/dyOxxGb
+
+https://gsap.com/community/forums/topic/23549-circular-menu/
+
+https://gsap.com/community/forums/topic/30338-circular-carouselslider/
+https://gsap.com/community/forums/topic/31694-3d-rounded-carousel-with-gsap/
+https://codepen.io/elegantseagulls/pen/LYJaLNx
+https://gsap.com/community/forums/topic/37692-3d-carousel-with-more-items/
+https://gsap.com/community/forums/topic/39782-vertical-image-slider-with-changing-text/
+https://gsap.com/community/forums/topic/17644-vertical-round-carousel/
+
+https://freebiesupply.com/blog/css-js-sliders-from-codepen/
+http://gsap.com/community/forums/topic/28552-creating-vertical-carousel/
+
+https://gsap.com/community/forums/topic/41306-gsap-fixed-circle-slider-by-scrolling/
+
+<!-- slide doc la -->
+
+https://codepen.io/suez/pen/grJONP
+
+cricle scroll parallax vertical
+https://codepen.io/GreenSock/pen/XWzRraJ
