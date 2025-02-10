@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://db.onlinewebfonts.com/c/1c87f20c55baa7eccc98b8603b5eecea?family=GrifinitoL"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
@@ -14,12 +16,22 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f9f9f9;
+        background: radial-gradient(
+          ellipse at bottom,
+          #1b2735 0%,
+          #090a0f 100%
+        );
       }
       h1 {
-        font-family: "GrifinitoL";
+        font-family: "Syne", serif;
         letter-spacing: 2px;
         font-size: 60px;
+        color: #fff;
+        text-transform: uppercase;
+      }
+      h1 span {
+        color: transparent;
+        -webkit-text-stroke: 1px #bfbfbf;
       }
       .grid-container {
         display: grid;
@@ -68,7 +80,10 @@
     </style>
   </head>
   <body>
-    <h1 style="text-align: center; margin: 20px 0">Overview</h1>
+    <h1 style="text-align: center; margin: 20px 0">
+      List <span>Overview</span>
+    </h1>
+
     <div class="grid-container">
       <!-- Item 1 -->
       <div class="grid-item">
@@ -415,6 +430,14 @@
         <div class="content">
           <a href="./hover-button-gsap/index.html" target="_blank"
             >Hover text button using gsap</a
+          >
+        </div>
+      </div>
+      <div class="grid-item">
+        <img src="./assets/images/26.png" alt="Item 13" />
+        <div class="content">
+          <a href="./shooting-star-v2/index.html" target="_blank"
+            >Shooting Star v2</a
           >
         </div>
       </div>
