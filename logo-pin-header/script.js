@@ -7,11 +7,23 @@ const scaledHeight = originalHeight * scaleFactor;
 console.log(scaledHeight);
 
 const animate = () => {
+  gsap.fromTo(
+    "#logo",
+    { scale: 1, autoAlpha: 0 }, // Bắt đầu với scale nhỏ và ẩn
+    {
+      scale: scaleFactor,
+      autoAlpha: 1,
+
+      duration: 1.5,
+      ease: "power2.out", // Sau khi scale xong thì gọi animation scroll
+    }
+  );
   gsap.from("#logo", {
     duration: 3,
     scale: scaleFactor,
     y: window.innerHeight * 0.5 - scaledHeight * 0.5 + 48,
-    transformOrigin: "left center",
+    x: "0%",
+    // transformOrigin: "left center",
 
     scrollTrigger: {
       trigger: ".hero-img",
