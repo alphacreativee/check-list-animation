@@ -10,11 +10,11 @@
 
 body {
   margin: 0;
-  --color-text: #919191;
+  --color-text: #cda3a3;
   --color-text-alt: #747474;
-  --color-bg: #eaeaea;
-  --color-link: #000000;
-  --color-link-hover: #104ed6;
+  --color-bg: #131111;
+  --color-link: #d7d7d7;
+  --color-link-hover: #848484;
   color: var(--color-text);
   background: var(--color-bg);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
@@ -22,7 +22,7 @@ body {
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --cursor-stroke: #000;
+  --cursor-stroke: #c03030;
 }
 
 a {
@@ -64,6 +64,26 @@ main {
   flex-direction: column;
 }
 
+.frame {
+  padding: 1.5rem 2rem 10vh;
+  text-align: center;
+  position: relative;
+}
+
+.frame__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.frame__links {
+  margin: 0.5rem 0 2rem;
+}
+
+.frame__links a:not(:last-child) {
+  margin-right: 1rem;
+}
+
 .menu {
   flex: 1;
   display: grid;
@@ -81,7 +101,7 @@ main {
 
 @media screen and (min-width: 53em) {
   .menu {
-    font-size: 4vw;
+    font-size: 3vw;
     grid-auto-flow: column;
     max-width: min-content;
   }
@@ -112,9 +132,7 @@ main {
   .cursor__inner {
     fill: none;
     stroke: var(--cursor-stroke);
-    stroke-width: 1.5px;
-    width: 40px;
-    height: 40px;
+    stroke-width: 1px;
   }
 
   .no-js .cursor {

@@ -7,6 +7,16 @@
 const lerp = (a, b, n) => (1 - n) * a + n * b;
 
 /**
+ * Map number x from range [a, b] to [c, d]
+ * @param {Number} x - changing value
+ * @param {Number} a
+ * @param {Number} b
+ * @param {Number} c
+ * @param {Number} d
+ */
+const map = (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c;
+
+/**
  * Gets the cursor position
  * @param {Event} ev - mousemove event
  */
@@ -84,7 +94,7 @@ class CursorElement {
     feTurbulence: null,
   };
   // Scales value when entering an <a> element
-  radiusOnEnter = 50;
+  radiusOnEnter = 60;
   // Opacity value when entering an <a> element
   opacityOnEnter = 1;
   // radius
@@ -169,8 +179,9 @@ class CursorElement {
    * Scale up and fade out.
    */
   enter() {
-    this.renderedStyles["radius"].current = this.radiusOnEnter;
+    //this.renderedStyles['radius'].current = this.radiusOnEnter;
     this.renderedStyles["opacity"].current = this.opacityOnEnter;
+
     this.filterTimeline.restart();
   }
 
@@ -179,34 +190,62 @@ class CursorElement {
    * Reset scale and opacity.
    */
   leave() {
+    this.DOM.inner.style.filter = "none";
+    this.filterTimeline.kill();
     this.renderedStyles["radius"].current = this.radius;
     this.renderedStyles["opacity"].current = 1;
-
-    this.filterTimeline.progress(1).kill();
   }
 
   createFilterTimeline() {
+    const turbulenceValues = { from: 0.13, to: 0.15 };
+
     this.filterTimeline = gsap
       .timeline({
         paused: true,
         onStart: () => {
+          this.DOM.feTurbulence.setAttribute(
+            "seed",
+            Math.round(gsap.utils.random(1, 20))
+          );
           this.DOM.inner.style.filter = `url(${this.filterId}`;
+          this.renderedStyles["opacity"].current = 1;
         },
         onUpdate: () => {
           this.DOM.feTurbulence.setAttribute(
             "baseFrequency",
             this.primitiveValues.turbulence
           );
+          this.renderedStyles["opacity"].current = this.renderedStyles[
+            "opacity"
+          ].previous = map(
+            this.primitiveValues.turbulence,
+            turbulenceValues.from,
+            turbulenceValues.to,
+            1,
+            0
+          );
+          this.renderedStyles["radius"].current = this.renderedStyles[
+            "radius"
+          ].previous = map(
+            this.primitiveValues.turbulence,
+            turbulenceValues.from,
+            turbulenceValues.to,
+            +this.radius,
+            this.radiusOnEnter
+          );
         },
         onComplete: () => {
           this.DOM.inner.style.filter = "none";
+          this.renderedStyles["radius"].current = this.renderedStyles[
+            "radius"
+          ].previous = this.radius;
         },
       })
       .to(this.primitiveValues, {
-        duration: 1,
-        ease: "expo",
-        startAt: { turbulence: 0.35 },
-        turbulence: 0,
+        duration: 3,
+        ease: "power4",
+        startAt: { turbulence: turbulenceValues.from },
+        turbulence: turbulenceValues.to,
       });
   }
 
