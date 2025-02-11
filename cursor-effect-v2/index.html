@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="menu">
+        <a class="menu__item" href="#">Karuna</a>
+        <a class="menu__item" href="#">Sukha</a>
+        <a class="menu__item" href="#">Samkhara</a>
+        <a class="menu__item" href="#">Bodhi</a>
+      </nav>
+      <svg class="cursor" width="140" height="140" viewBox="0 0 140 140">
+        <defs>
+          <filter
+            id="cursor-filter"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+            filterUnits="objectBoundingBox"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              seed="1"
+              baseFrequency="0"
+              numOctaves="1"
+              result="warp"
+            />
+            <feDisplacementMap
+              xChannelSelector="R"
+              yChannelSelector="G"
+              scale="40"
+              in="SourceGraphic"
+            />
+          </filter>
+        </defs>
+        <circle class="cursor__inner" cx="70" cy="70" r="20" />
+      </svg>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
