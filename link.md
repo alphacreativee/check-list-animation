@@ -89,3 +89,9 @@ btv
 
 <!-- https://tympanus.net/Development/OnScrollLayoutFormations/ -->
 <!-- https://tympanus.net/Development/OnScrollShapeMorph/ -->
+
+https://tympanus.net/Development/TileScroll/
+
+<!-- slider -->
+
+https://tympanus.net/Development/ShapesSlideshow/index3.html
