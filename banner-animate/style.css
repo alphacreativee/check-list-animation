@@ -7,6 +7,68 @@
   font-style: normal;
 }
 
+body {
+  margin: 0;
+  --color-text: #919191;
+  --color-text-alt: #747474;
+  --color-bg: #eaeaea;
+  --color-link: #000000;
+  --color-link-hover: #104ed6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --cursor-stroke: #FFF;
+}
+
+a:focus {
+  /* Provide a fallback style for browsers
+       that don't support :focus-visible */
+  outline: none;
+  background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+       that do support :focus-visible */
+  background: transparent;
+}
+
+a:focus-visible {
+  /* Draw a very noticeable focus style for
+       keyboard-focus on browsers that do support
+       :focus-visible */
+  outline: 2px solid red;
+  background: transparent;
+}
+
+.cursor {
+  display: none;
+}
+
+@media (any-pointer: fine) {
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    pointer-events: none;
+    z-index: 10000;
+  }
+
+  .cursor__inner {
+    fill: none;
+    stroke: var(--cursor-stroke);
+    stroke-width: 1.5px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .no-js .cursor {
+    display: none;
+  }
+}
+
 .travel-container {
   font-family: "Oswald", sans-serif;
   width: 100%;
@@ -172,9 +234,9 @@
   cursor: pointer;
 }
 
-.carousel .controller .ctl-btn svg{
-    width: 16px;
-    height: 16px;
+.carousel .controller .ctl-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 .carousel .controller .ctl-btn:hover {
@@ -206,8 +268,8 @@
   transition: ease-in-out 0.35s;
 }
 
-.timeline .timeline-item span{
-    display: none;
+.timeline .timeline-item span {
+  display: none;
 }
 
 .timeline .timeline-item.active {
@@ -217,8 +279,8 @@
   color: var(--color-black);
 }
 
-.timeline .timeline-item.active span{
-    display: block;
+.timeline .timeline-item.active span {
+  display: block;
 }
 
 .timeline .index {
@@ -259,19 +321,19 @@
   gap: 24px;
 }
 
-.header.navbar-2 .nav a{
-    color: rgba(255, 255, 255, 0.65);
-    transition: all 0.4s ease;
+.header.navbar-2 .nav a {
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.4s ease;
 }
 
 .header.navbar-2 .nav li.active a,
-.header.navbar-2 .nav li:hover a{
-    color: #FFF;
+.header.navbar-2 .nav li:hover a {
+  color: #fff;
 }
 
-.header.navbar-2 .search{
-    width: 200px;
-    height: 10px;
+.header.navbar-2 .search {
+  width: 200px;
+  height: 10px;
 }
 
 .header.navbar-2 .nav .ant-menu-item-selected {
