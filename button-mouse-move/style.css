@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Syne", serif;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.button-circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: border 0.3s ease-in;
+}
+.button-circle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.button-circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  transform-origin: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  color: #fff;
+  animation: scalebutton 4s infinite;
+}
+.button-circle svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: opacity 300ms;
+  opacity: 0;
+}
+@keyframes scalebutton {
+  0% {
+    opacity: 0;
+    border-width: 2px;
+    transform: scale(0);
+    background-color: currentColor;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+    border-width: 2px;
+    background-color: currentColor;
+  }
+  100% {
+    opacity: 0;
+    border-width: 1px;
+    background-color: transparent;
+    transform: scale(2);
+  }
+}
