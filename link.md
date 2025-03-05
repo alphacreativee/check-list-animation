@@ -95,3 +95,39 @@ https://tympanus.net/Development/TileScroll/
 <!-- slider -->
 
 https://tympanus.net/Development/ShapesSlideshow/index3.html
+
+https://codepen.io/jtrancozo/pen/mEoEVw
+
+<!-- https://tympanus.net/Development/LiquidDistortion/index5.html -->
+
+menu overlay svg codepen
+https://codepen.io/Lucas_Mas/pen/RwvPLjj
+https://codepen.io/osmosupply/pen/JoPPOXj
+https://gsap.com/community/forums/topic/27055-overlay-menu-how-to-lock-the-body-scroll-when-active/
+https://www.youtube.com/watch?v=WENG-Ee8FTQ
+
+https://gsap.com/community/forums/topic/19947-custom-cursor-movement-disappears-on-scroll/
+
+3d hover ball
+https://codepen.io/Tino-the-bold/pen/JjgqVym
+
+pin image change content
+https://codepen.io/snorkltv/pen/vYVBPJq
+
+https://codepen.io/snorkltv/pen/MWPgoXV
+
+https://tympanus.net/Development/ShapesSlideshow/
+https://github.com/caiteesmith/threejs-sphere
+
+<!-- scroll product image -->
+
+https://www.youtube.com/watch?v=-iDet4p7484
+
+https://github.com/thesiyhbrand/fanta
+
+https://github.com/developermickey/Lagunitas-Website-YouTube
+
+<!-- three js -->
+
+https://www.youtube.com/watch?v=Ud_hP2raTmk
+https://www.youtube.com/watch?v=k66veZnKbFU
