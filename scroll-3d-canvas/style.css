@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Syne", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#main {
+  position: relative;
+  overflow: hidden;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+canvas {
+  position: relative;
+  z-index: 9;
+  max-width: 100%;
+  max-height: 100vh;
+}
+.loop {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  font-size: 100px;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.loop h1 {
+  animation: anim 15s linear infinite;
+}
+.loop h1 span {
+  -webkit-text-stroke: 1.2px #000;
+  color: transparent;
+}
+@keyframes anim {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
