@@ -50,3 +50,7 @@ canvas {
     transform: translateX(-100%);
   }
 }
+.section-two {
+  display: flex;
+  justify-content: space-between;
+}
