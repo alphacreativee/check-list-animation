@@ -50,7 +50,14 @@ canvas {
     transform: translateX(-100%);
   }
 }
-.section-two {
-  display: flex;
-  justify-content: space-between;
+
+.section-two .right-text {
+  position: absolute;
+  left: 80px;
+  top: 50%;
+}
+.section-two .left-text {
+  position: absolute;
+  right: 80px;
+  top: 50%;
 }
