@@ -131,3 +131,19 @@ https://github.com/developermickey/Lagunitas-Website-YouTube
 
 https://www.youtube.com/watch?v=Ud_hP2raTmk
 https://www.youtube.com/watch?v=k66veZnKbFU
+
+<!-- slider vertical parrallax -->
+
+https://codepen.io/Okaybeok/pen/qBjRrGb
+
+https://codesandbox.io/p/sandbox/custom-pagination-circular-progress-bar-swiper-qoh8f9?file=%2Findex.html
+
+https://codepen.io/livehighvu06/pen/abqRYKr
+
+https://codepen.io/apovkh/pen/poNgzzm
+
+https://codepen.io/leon9208/pen/poyvQWa
+
+function swiperBanner() { if ($(".hero-sec").length) { var swiperBanner = new Swiper(".swiper-banner", { direction: "vertical", // Giữ vertical như yêu cầu trước loop: true, speed: 1500, grabCursor: true, watchSlidesProgress: true, mousewheel: true, // Dùng cú pháp mới keyboard: true, autoplay: { delay: 2000, // 2 giây mỗi slide disableOnInteraction: true, }, pagination: { el: ".swiper-pagination", clickable: true, renderBullet: function (index, className) { return '<span class="' + className + '"></span>'; }, }, on: { // Giữ logic interleave của bạn progress: function (swiper) { swiper.slides.forEach(function (slide) { var slideProgress = slide.progress || 0; var innerOffset = swiper.height _ 0.9; var innerTranslate = slideProgress _ innerOffset; if (!isNaN(innerTranslate)) { var slideInner = slide.querySelector(".slide-banner"); if (slideInner) { slideInner.style.transform = "translate3d(0, " + innerTranslate + "px, 0)"; } } }); }, touchStart: function (swiper) { swiper.slides.forEach(function (slide) { slide.style.transition = ""; }); }, setTransition: function (swiper, speed) { var easing = "cubic-bezier(0.25, 0.1, 0.25, 1)"; swiper.slides.forEach(function (slide) { slide.style.transition = speed + "ms " + easing; var slideInner = slide.querySelector(".slide-banner"); if (slideInner) { slideInner.style.transition = speed + "ms " + easing; } }); }, slideChange: function (swiper) { // Reset animation khi chuyển slide var bullets = document.querySelectorAll(".swiper-pagination-bullet"); bullets.forEach(function (bullet) { bullet.style.animation = "none"; void bullet.offsetWidth; // Trigger reflow if (bullet.classList.contains("swiper-pagination-bullet-active")) { bullet.style.animation = ""; } }); }, }, }); } } swiperBanner();
+
+.swiper-pagination { position: relative; bottom: 10px; } .swiper-pagination-bullet { width: 10px; height: 10px; background: #ccc; /_ Màu bullet mặc định _/ opacity: 0.5; position: relative; transition: opacity 0.3s; // Vòng tròn tiến trình bên ngoài &::before { content: ""; position: absolute; top: 50%; left: 50%; width: 16px; /_ Lớn hơn bullet _/ height: 16px; border: 2px solid #000; /_ Màu vòng tròn tiến trình _/ border-radius: 50%; transform: translate(-50%, -50%); clip-path: circle(0% at 50% 50%); /_ Ban đầu ẩn hết _/ transition: clip-path 0s; /_ Reset animation _/ } } .swiper-pagination-bullet-active { opacity: 1; background: #000; /_ Màu bullet khi active _/ &::before { animation: progressCircle 2s linear forwards; /_ Chạy vòng tròn trong 2s _/ } } // Animation cho vòng tròn tiến trình @keyframes progressCircle { 0% { clip-path: circle(0% at 50% 50%); } 100% { clip-path: circle(50% at 50% 50%); } }
