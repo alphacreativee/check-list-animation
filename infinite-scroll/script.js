@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const totalSlides = 6;
+  const totalSlides = 7; // Đã sửa thành 7 để khớp với số lượng slide
   let currentSlide = 1;
   let isAnimating = false;
   let scrollAllowed = true;
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const slideTitles = [
     "Field Unit",
-    "Astral Convergrence",
+    "Astral Convergence",
     "Lumis",
     "Serenity",
     "Interstellar",
@@ -16,18 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const slideDescriptions = [
-    "Field Unit",
-    "Astral Convergrence",
-    "Serenity",
-    "Interstellar",
-    "Elysium",
-    "Lumis",
-    "Inverted",
+    "A rugged exploration unit for harsh terrains.",
+    "A cosmic event aligning the stars.",
+    "A beacon of light in the darkness.",
+    "A peaceful retreat from chaos.",
+    "A journey beyond the stars.",
+    "A paradise among the cosmos.",
+    "A world turned upside down.",
   ];
 
   function createSlide(slideNumber, direction) {
     const slide = document.createElement("div");
-
     slide.className = "slide";
 
     const slideBgImg = document.createElement("div");
@@ -35,17 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const img = document.createElement("img");
     img.src = `images/img${slideNumber}.webp`;
-    img.alt = "";
+    img.alt = slideTitles[slideNumber - 1];
 
     slideBgImg.appendChild(img);
     slide.appendChild(slideBgImg);
 
-    if (direction == "down") {
-      slideBgImg.style.clipPath =
-        "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
-    } else {
-      slideBgImg.style.clipPath = "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
-    }
+    slideBgImg.style.clipPath =
+      direction === "down"
+        ? "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
+        : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
+
     return slide;
   }
 
@@ -55,31 +53,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const img = document.createElement("img");
     img.src = `images/img${slideNumber}.webp`;
-    img.alt = "";
+    img.alt = slideTitles[slideNumber - 1];
 
     wrapper.appendChild(img);
 
-    if (direction == "down") {
-      wrapper.style.clipPath = "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
-    } else {
-      wrapper.style.clipPath =
-        "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
-    }
+    wrapper.style.clipPath =
+      direction === "down"
+        ? "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
+        : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
+
     return wrapper;
   }
 
   function createTextElement(slideNumber, direction) {
     const newTitle = document.createElement("h1");
     newTitle.textContent = slideTitles[slideNumber - 1];
-    gsap.set(newTitle, {
-      y: direction === "down" ? 80 : -80,
-    });
+    gsap.set(newTitle, { y: direction === "down" ? 80 : -80 });
 
     const newDescription = document.createElement("p");
     newDescription.textContent = slideDescriptions[slideNumber - 1];
-    gsap.set(newDescription, {
-      y: direction === "down" ? 20 : -20,
-    });
+    gsap.set(newDescription, { y: direction === "down" ? 40 : -40 });
+
     return { newTitle, newDescription };
   }
 
@@ -92,27 +86,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const slider = document.querySelector(".slider");
     const currentSlideElement = slider.querySelector(".slide");
     const mainImageContainer = document.querySelector(".slide-main-img");
-    console.log(mainImageContainer);
-
     const currentMainWrapper = mainImageContainer.querySelector(
       ".slide-main-img-wrapper"
     );
-
     const titleContainer = document.querySelector(".slide-title");
     const descriptionContainer = document.querySelector(".slide-description");
-
     const currentTitle = titleContainer.querySelector("h1");
     const currentDescription = descriptionContainer.querySelector("p");
 
-    if (direction === "down") {
-      currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
-    } else {
-      currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
-    }
+    currentSlide =
+      direction === "down"
+        ? currentSlide === totalSlides
+          ? 1
+          : currentSlide + 1
+        : currentSlide === 1
+        ? totalSlides
+        : currentSlide - 1;
 
     const newSlide = createSlide(currentSlide, direction);
     const newMainWrapper = createMainImageWrapper(currentSlide, direction);
-
     const { newTitle, newDescription } = createTextElement(
       currentSlide,
       direction
@@ -132,21 +124,20 @@ document.addEventListener("DOMContentLoaded", () => {
           currentDescription,
         ].forEach((el) => el.remove());
         isAnimating = false;
-        setTimeout(() => {
-          scrollAllowed = true;
-          lastScrollTime = Date.now();
-        }, 100);
+        scrollAllowed = true;
+        lastScrollTime = Date.now();
       },
     });
+
     tl.to(
       newSlide.querySelector(".slide-bg-img"),
       {
         clipPath:
           direction === "down"
-            ? "polygon(0% 100%, 100% 100% , 100% 0%,0% 0%)"
-            : "polygon(0% 0%, 100% 0%, 100% 100%,0% 100%)",
+            ? "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)"
+            : "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         duration: 1.25,
-        ease: CustomEase.create("", "0.87,0,0.13,1"),
+        ease: CustomEase.create("custom", "0.87, 0, 0.13, 1"),
       },
       0
     );
@@ -156,10 +147,10 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         clipPath:
           direction === "down"
-            ? "polygon(0% 0%, 100% 0% , 100% 100%,0% 100%)"
-            : "polygon(0% 100%, 100% 100%, 100% 0%,0% 0%)",
+            ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+            : "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
         duration: 1.25,
-        ease: CustomEase.create("", "0.87,0,0.13,1"),
+        ease: CustomEase.create("custom", "0.87, 0, 0.13, 1"),
       },
       0
     );
@@ -169,34 +160,55 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         y: "0%",
         duration: 1.25,
-        ease: CustomEase.create("", "0.87,0,0.13,1"),
+        ease: CustomEase.create("custom", "0.87, 0, 0.13, 1"),
       },
       0
     );
+
     tl.to(
       newTitle,
       {
-        y: "0%",
+        y: 0,
         duration: 1.25,
-        ease: CustomEase.create("", "0.87,0,0.13,1"),
+        ease: CustomEase.create("custom", "0.87, 0, 0.13, 1"),
       },
       0
     );
+
+    tl.to(
+      newDescription,
+      {
+        y: 0,
+        duration: 1.25,
+        ease: CustomEase.create("custom", "0.87, 0, 0.13, 1"),
+      },
+      0
+    );
+
+    tl.to(
+      currentTitle,
+      {
+        y: direction === "down" ? -80 : 80,
+        duration: 1.25,
+        ease: CustomEase.create("custom", "0.87, 0, 0.13, 1"),
+      },
+      0
+    );
+
     tl.to(
       currentDescription,
       {
         y: direction === "down" ? -40 : 40,
-        // y: "0%",
         duration: 1.25,
-        ease: CustomEase.create("", "0.87,0,0.13,1"),
+        ease: CustomEase.create("custom", "0.87, 0, 0.13, 1"),
       },
       0
     );
   }
+
   function handleScroll(direction) {
     const now = Date.now();
-    if (isAnimating || !scrollAllowed) return;
-    if (now - lastScrollTime < 1000) return;
+    if (isAnimating || !scrollAllowed || now - lastScrollTime < 1250) return; // Đồng bộ với duration 1.25s
     lastScrollTime = now;
     animateSlide(direction);
   }
@@ -208,9 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const direction = e.deltaY > 0 ? "down" : "up";
       handleScroll(direction);
     },
-    {
-      passive: false,
-    }
+    { passive: false }
   );
 
   let touchStartY = 0;
@@ -222,9 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
       touchStartY = e.touches[0].clientY;
       isTouchActive = true;
     },
-    {
-      passive: false,
-    }
+    { passive: false }
   );
 
   window.addEventListener(
@@ -241,10 +249,9 @@ document.addEventListener("DOMContentLoaded", () => {
         handleScroll(direction);
       }
     },
-    {
-      passive: false,
-    }
+    { passive: false }
   );
+
   window.addEventListener("touchend", () => {
     isTouchActive = false;
   });

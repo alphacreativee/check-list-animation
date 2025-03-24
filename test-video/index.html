@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <iframe
+      id="vimeo-1"
+      src="https://player.vimeo.com/video/1067201448?h=c88a4d3839"
+      width="640"
+      height="360"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+
+    <iframe
+      id="vimeo-2"
+      src="https://player.vimeo.com/video/1067207905?h=42a61d119d"
+      width="640"
+      height="360"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const player1 = new Vimeo.Player("vimeo-1");
+        player1.setMuted(true);
+        player1.setLoop(true);
+        player1.play().catch((err) => console.log("Video 1:", err));
+
+        const player2 = new Vimeo.Player("vimeo-2");
+        player2.setMuted(true);
+        player2.setLoop(true);
+        player2.play().catch((err) => console.log("Video 2:", err));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>3D Animated Blob with Scroll Zigzag - Rounder</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <style>
+      body {
+        height: 2000px;
+        margin: 0;
+        background: linear-gradient(45deg, #1a1a1a, #333);
+        overflow-x: hidden;
+      }
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      // Thiết lập Three.js
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(window.devicePixelRatio);
+
+      camera.position.z = 5;
+
+      // Tạo blob 3D
+      class Blob3D {
+        constructor() {
+          this.radius = 2;
+          this.geometry = new THREE.IcosahedronGeometry(this.radius, 32);
+          this.material = new THREE.ShaderMaterial({
+            uniforms: {
+              uTime: { value: 0 },
+              uMouse: { value: new THREE.Vector2(0, 0) },
+              uScrollOffset: { value: 0 },
+            },
+            vertexShader: `
+                        uniform float uTime;
+                        uniform vec2 uMouse;
+                        uniform float uScrollOffset;
+                        varying vec2 vUv;
+
+                        void main() {
+                            vUv = uv;
+                            vec3 pos = position;
+
+                            float noise = sin(pos.x * 2.0 + uTime) * cos(pos.y * 2.0 + uTime) * 0.1;
+                            pos += normal * noise;
+
+                            float dist = distance(vec2(pos.x, pos.y), uMouse);
+                            if (dist < 1.5) {
+                                pos += normal * (1.5 - dist) * 0.1; // Giảm hiệu ứng chuột
+                            }
+
+                            pos.x += sin(uScrollOffset) * 0.5;
+
+                            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+                        }
+                    `,
+            fragmentShader: `
+                        uniform float uTime;
+                        varying vec2 vUv;
+
+                        void main() {
+                            vec3 color = vec3(sin(uTime * 0.5) * 0.5 + 0.5, cos(uTime * 0.3) * 0.5 + 0.5, 0.2);
+                            float glow = sin(uTime) * 0.2 + 0.8;
+                            gl_FragColor = vec4(color * glow, 0.8);
+                        }
+                    `,
+            side: THREE.DoubleSide,
+          });
+
+          this.mesh = new THREE.Mesh(this.geometry, this.material);
+          scene.add(this.mesh);
+
+          this.mouse = new THREE.Vector2(0, 0);
+          this.targetMouse = new THREE.Vector2(0, 0);
+          this.ease = 0.05;
+          this.scrollOffset = 0;
+
+          this.addListeners();
+          this.addScrollEffect();
+        }
+
+        addListeners() {
+          window.addEventListener("mousemove", (e) => {
+            this.targetMouse.x = (e.clientX / w) * 2 - 1;
+            this.targetMouse.y = -(e.clientY / h) * 2 + 1;
+          });
+
+          window.addEventListener("touchmove", (e) => {
+            const touch = e.touches[0];
+            this.targetMouse.x = (touch.clientX / w) * 2 - 1;
+            this.targetMouse.y = -(touch.clientY / h) * 2 + 1;
+          });
+        }
+
+        addScrollEffect() {
+          gsap.to(this, {
+            scrollTrigger: {
+              trigger: "body",
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 1,
+              onUpdate: (self) => {
+                const progress = self.progress;
+                this.scrollOffset = Math.sin(progress * Math.PI * 4) * 2;
+                this.material.uniforms.uScrollOffset.value = this.scrollOffset;
+              },
+            },
+          });
+        }
+
+        update(time) {
+          this.mouse.lerp(this.targetMouse, this.ease);
+          this.material.uniforms.uMouse.value = this.mouse;
+          this.material.uniforms.uTime.value = time * 0.001;
+
+          this.mesh.rotation.x = time * 0.0002;
+          this.mesh.rotation.y = time * 0.0003;
+        }
+      }
+
+      // Khởi tạo blob
+      const blob = new Blob3D();
+
+      // Xử lý resize
+      window.addEventListener("resize", () => {
+        const newWidth = window.innerWidth;
+        const newHeight = window.innerHeight;
+        renderer.setSize(newWidth, newHeight);
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+      });
+
+      // Animation
+      function animate(time) {
+        blob.update(time);
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    </script>
+  </body>
+</html>
