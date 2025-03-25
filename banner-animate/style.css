@@ -18,7 +18,7 @@ body {
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --cursor-stroke: #FFF;
+  --cursor-stroke: #fff;
 }
 
 a:focus {
@@ -94,6 +94,7 @@ a:focus-visible {
 
 .travel-container .content .left {
   width: 5%;
+  transform: translateY(-5%);
   height: 100%;
   display: flex;
   justify-content: center;
@@ -126,9 +127,14 @@ a:focus-visible {
 
 .travel-container .content .center .explore-btn {
   margin-top: 40px;
-  font-size: 20px;
   font-weight: 700;
-  padding: 22px 30px;
+  padding: 14px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  border: 1px solid #fff;
+  color: #fff;
 }
 
 .travel-container .content .center .explore-btn:hover {
@@ -159,6 +165,9 @@ a:focus-visible {
   height: 500px;
   position: relative;
   overflow: hidden;
+
+  display: flex;
+  align-items: center;
 }
 
 .carousel .carousel-item {
@@ -399,4 +408,105 @@ a:focus-visible {
 
 .header.navbar-2 .profile .book__now a {
   color: var(--color-white);
+}
+
+/* general */
+.button-custom {
+  --background: transparent;
+  --text: #fff;
+  --font-size: 14px;
+  --duration: 0.44s;
+  --move-hover: -4px;
+  --shadow: 0 2px 8px -1px rgba(39, 94, 254, 0.32);
+  --shadow-hover: 0 4px 20px -2px rgba(39, 94, 254, 0.5);
+  --font-shadow: var(--font-size);
+  text-transform: uppercase;
+  padding: 16px 32px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  line-height: calc(var(--font-size) + 0);
+  border-radius: 24px;
+  display: block;
+  outline: none;
+  appearance: none;
+  border: none;
+  text-decoration: none;
+  font-size: var(--font-size);
+  letter-spacing: 0.5px;
+  background: var(--background);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transform: translateY(var(--y)) translateZ(0);
+  transition: transform var(--duration) ease, box-shadow var(--duration) ease;
+}
+
+.button-custom div {
+  display: flex;
+  overflow: hidden;
+  text-shadow: 0 var(--font-shadow) 0 var(--text);
+}
+
+.button-custom div span {
+  display: block;
+  backface-visibility: hidden;
+  font-style: normal;
+  transition: transform var(--duration) ease;
+  transform: translateY(var(--m)) translateZ(0);
+}
+
+.button-custom div span:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.button-custom div span:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.button-custom div span:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+.button-custom div span:nth-child(4) {
+  transition-delay: 0.2s;
+}
+
+.button-custom div span:nth-child(5) {
+  transition-delay: 0.25s;
+}
+
+.button-custom div span:nth-child(6) {
+  transition-delay: 0.3s;
+}
+
+.button-custom div span:nth-child(7) {
+  transition-delay: 0.35s;
+}
+
+.button-custom div span:nth-child(8) {
+  transition-delay: 0.4s;
+}
+
+.button-custom div span:nth-child(9) {
+  transition-delay: 0.45s;
+}
+
+.button-custom div span:nth-child(10) {
+  transition-delay: 0.5s;
+}
+
+.button-custom div span:nth-child(11) {
+  transition-delay: 0.55s;
+}
+
+.button-custom div span:nth-child(12) {
+  transition-delay: 0.6s;
+}
+
+.button-custom:hover {
+  /* --y: var(--move-hover); */
+  --shadow: var(--shadow-hover);
+}
+
+.button-custom:hover span {
+  --m: calc(var(--font-size) * -1);
 }
