@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="spacer green"></div>
+    <div class="section-wrapper">
+      <div class="left-column">
+        <h1>Our Features</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="wrapper light">
+        <div class="cards">
+          <div class="card-wrapper">
+            <div class="card red">Card 1</div>
+          </div>
+          <div class="card-wrapper">
+            <div class="card blue">Card 2</div>
+          </div>
+          <div class="card-wrapper">
+            <div class="card orange">Card 3</div>
+          </div>
+          <div class="card-wrapper">
+            <div class="card purple">Card 4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spacer green"></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script>
+      console.clear();
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const cardsWrappers = gsap.utils.toArray(".card-wrapper");
+      const cards = gsap.utils.toArray(".card");
+
+      cardsWrappers.forEach((wrapper, i) => {
+        const card = cards[i];
+
+        gsap.to(card, {
+          transformOrigin: "top center",
+          ease: "none",
+          scrollTrigger: {
+            trigger: wrapper,
+            start: "top " + (100 + 10 * i), // Bắt đầu khi card cách đỉnh 100px + offset
+            end: () => {
+              // Điểm kết thúc là khi card cuối cùng bắt đầu pin
+              if (i === cardsWrappers.length - 1) {
+                return "top " + (100 + 10 * i); // Kết thúc ngay tại điểm bắt đầu của card cuối
+              }
+              return "top " + (100 + 10 * (i + 1)); // Các card trước kết thúc khi card tiếp theo bắt đầu
+            },
+            scrub: true,
+            pin: wrapper, // Pin từng wrapper
+            // pinSpacing: false, // Không thêm khoảng cách khi pin
+            markers: {
+              indent: 150 * i,
+            },
+            id: i + 1,
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
