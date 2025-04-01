@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #171717;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+}
+section .img {
+  position: relative;
+  width: 80%;
+  height: 100%;
+}
+.img-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  height: 670px;
+}
+.img-container img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(1.2);
+  transform-origin: 50% 50%;
+}
